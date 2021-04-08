@@ -82,6 +82,8 @@ stages:
           - task: AzureWebApp@1
             displayName: 'Deploy Azure Web App : pipelineflaskdemo'
             inputs:
-              azureSubscription: $(azureServiceConnectionId)
-              appName: $(webAppName)
-              package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
+              azureSubscription: 'AzureThomas'
+              appType: 'webAppLinux'
+              appName: 'pipelineflaskdemo'
+              package: '$(Pipeline.Workspace)/drop/$(Build.BuildId).zip'
+              runtimeStack: 'PYTHON|3.8'
