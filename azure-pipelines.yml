@@ -87,4 +87,4 @@ stages:
               appName: 'pipelineflaskdemo'
               package: '$(Pipeline.Workspace)/drop/$(Build.BuildId).zip'
               runtimeStack: 'PYTHON|3.8'
-              startUpCommand: 'flask run'
+              startUpCommand: 'gunicorn --bind=0.0.0.0 --workers=4 startup:app'
